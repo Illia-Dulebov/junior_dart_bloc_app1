@@ -1,8 +1,11 @@
+import 'package:bloc_app1/users/bloc/user/user.dart';
+import 'package:bloc_app1/users/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc/bloc.dart';
 
 import 'cart/bloc_app.dart';
+import 'users/users_app.dart';
 
 part 'page_bloc.dart';
 part 'page_state.dart';
@@ -10,8 +13,15 @@ part 'page_event.dart';
 
 void main() {
   runApp(
-    BlocProvider(
-      create: (_) => MyBloc(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<MyBloc>(
+         create: (BuildContext context) => MyBloc(),
+        ),
+        BlocProvider<UserBloc>(
+         create: (BuildContext context) => UserBloc(userRepository: UserRepository()),
+        ),
+        ],
       child: MyApp(),
     ),
   );
@@ -24,7 +34,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => MainPage(),
         '/Illia': (context) => BlocApp(),
-        //'/Dima': (context) => PageDima(),
+        '/Dima': (context) => UsersApp(),
         //'/Anya': (context) => PageAnya(),
       },
       initialRoute: '/',
