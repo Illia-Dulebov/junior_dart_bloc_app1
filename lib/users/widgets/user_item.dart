@@ -1,9 +1,10 @@
+import 'package:bloc_app1/users/cubit/selected/selected_cubit.dart';
 import 'package:bloc_app1/users/models/models.dart';
+import 'package:bloc_app1/users/views/views.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc_app1/users/bloc/user/user.dart';
 
-import 'detail.dart';
 
 class UserItem extends StatelessWidget{
   final User user;
@@ -63,9 +64,27 @@ class UserItem extends StatelessWidget{
                        
                         IconButton(onPressed: (){
                           BlocProvider.of<UserBloc>(context).add(UserRenew(user.copyWith(isActive: true)));
-                        }, icon: const Icon(Icons.keyboard_return_outlined, size: 20, color: Colors.white)),
+                        }, 
+                        icon: const Icon(Icons.keyboard_return_outlined, size: 20, color: Colors.white)),
                       
-                        
+                         IconButton(
+                          onPressed: (){
+                            if (context.read<SelectedCubit>().isSaved(user.id)){
+                              context.read<SelectedCubit>().deleteSelected(user.id);
+                            }
+                            else{
+                              context.read<SelectedCubit>().saveSelected(user.id);
+                            }
+                            
+                          }, 
+                          icon: BlocBuilder<SelectedCubit, List<User>>(
+                            builder: (context, state){
+                            return Icon(state.any((element) => element.id == user.id) ? Icons.star_outlined : Icons.star_border_outlined, 
+                                  size: 20, 
+                                  color: Colors.white);
+                            }
+                          )),
+                                  
                         
                         
                         IconButton(onPressed: () => {showDialog(context: context, builder: (context) {

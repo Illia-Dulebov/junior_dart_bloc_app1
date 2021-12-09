@@ -1,9 +1,11 @@
 import 'package:bloc_app1/photos/photos.dart';
 import 'package:bloc_app1/users/bloc/user/user.dart';
+import 'package:bloc_app1/users/cubit/selected/selected_cubit.dart';
 import 'package:bloc_app1/users/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc/bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 
 import 'cart/bloc_app.dart';
@@ -14,6 +16,7 @@ part 'page_state.dart';
 part 'page_event.dart';
 
 void main() {
+  GetIt.instance.registerSingleton<UserRepository>(UserRepository());
   runApp(
     MultiBlocProvider(
       providers: [
@@ -21,7 +24,10 @@ void main() {
          create: (BuildContext context) => MyBloc(),
         ),
         BlocProvider<UserBloc>(
-         create: (BuildContext context) => UserBloc(userRepository: UserRepository()),
+         create: (BuildContext context) => UserBloc(),
+        ),
+        BlocProvider<SelectedCubit>(
+         create: (BuildContext context) => SelectedCubit(),
         ),
         BlocProvider<PhotoBloc>(
          create: (BuildContext context) => PhotoBloc(httpClient: http.Client())..add(PhotoFetched()),
