@@ -1,3 +1,4 @@
+import 'package:bloc_app1/photos/photos.dart';
 import 'package:bloc_app1/users/bloc/user/user.dart';
 import 'package:bloc_app1/users/cubit/selected/selected_cubit.dart';
 import 'package:bloc_app1/users/models/models.dart';
@@ -28,6 +29,9 @@ void main() {
         BlocProvider<SelectedCubit>(
          create: (BuildContext context) => SelectedCubit(),
         ),
+        BlocProvider<PhotoBloc>(
+         create: (BuildContext context) => PhotoBloc(httpClient: http.Client())..add(PhotoFetched()),
+        ),
         ],
       child: MyApp(),
     ),
@@ -42,7 +46,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => MainPage(),
         '/Illia': (context) => BlocApp(),
         '/Dima': (context) => UsersApp(),
-        //'/Anya': (context) => PageAnya(),
+        '/Anya': (context) => PhotosPage(),
       },
       initialRoute: '/',
     );
