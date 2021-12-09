@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc/bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:http/http.dart' as http;
 
 import 'cart/bloc_app.dart';
 import 'users/users_app.dart';
