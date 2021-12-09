@@ -9,11 +9,10 @@ class SelectedCubit extends Cubit<List<User>>{
     try{
       if(!this.isSaved(id)){
         final user = await GetIt.I<UserRepository>().loadSingleUser(id: id);
-        var newState = state;
+        var newState = List<User>.from(state);
         newState.add(user);
         emit(newState);
       }
-      emit(state);
     }
     catch(_){
       emit(state);
@@ -25,10 +24,6 @@ class SelectedCubit extends Cubit<List<User>>{
       var newState = state.where((element) => element.id != id).toList();
       emit(newState);
     }
-    else{
-      emit(state);
-    }
-    
   }
 
 
