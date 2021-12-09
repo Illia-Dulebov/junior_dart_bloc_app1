@@ -79,7 +79,7 @@ class UserItem extends StatelessWidget{
                           }, 
                           icon: BlocBuilder<SelectedCubit, List<User>>(
                             builder: (context, state){
-                            return Icon(state.any((element) => element.id == user.id) ? Icons.star_outlined : Icons.star_border_outlined, 
+                            return Icon(context.read<SelectedCubit>().isSaved(user.id) ? Icons.star_outlined : Icons.star_border_outlined, 
                                   size: 20, 
                                   color: Colors.white);
                             }
