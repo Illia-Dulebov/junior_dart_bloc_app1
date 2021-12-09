@@ -1,36 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Illia-Dulebov 
-Illia-Dulebov
-/
-junior_dart_bloc_app1
-Public
-1
-00
-Code
-Issues
-Pull requests
-1
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-junior_dart_bloc_app1/lib/main.dart
-@tsymbaliuk7
-tsymbaliuk7 added users app
-Latest commit 2d8a6f8 23 hours ago
- History
- 2 contributors
-@Illia-Dulebov@tsymbaliuk7
-105 lines (98 sloc)  2.79 KB
-   
 import 'package:bloc_app1/users/bloc/user/user.dart';
 import 'package:bloc_app1/users/models/models.dart';
 import 'package:flutter/material.dart';
@@ -136,16 +103,3 @@ class _MainPageState extends State<MainPage> {
         ));
   }
 }
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
