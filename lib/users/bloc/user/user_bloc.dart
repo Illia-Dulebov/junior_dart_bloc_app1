@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:bloc_app1/users/models/models.dart';
 import 'package:bloc_app1/users/bloc/user/user.dart';
+import 'package:get_it/get_it.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState>{
-  final UserRepository userRepository;
 
-  UserBloc({required this.userRepository}) : super(UserLoadInProgress()){
+  UserBloc() : super(UserLoadInProgress()){
     on<UserLoaded>(_onUserLoaded);
     on<UserDelete>(_onUserDelete);
     on<UserBan>(_onUserBan);
@@ -16,7 +16,7 @@ class UserBloc extends Bloc<UserEvent, UserState>{
 
  void _onUserLoaded(UserLoaded event, Emitter<UserState> emit) async {
    try{
-      final users = await userRepository.loadUsers();
+      final users = await GetIt.I<UserRepository>().loadUsers();
       emit(UserLoadSuccess(users: users));
     }
     catch(_){

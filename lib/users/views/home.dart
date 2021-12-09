@@ -1,5 +1,6 @@
 import 'package:bloc_app1/users/bloc/user/user.dart';
-import 'package:bloc_app1/users/views/user_item.dart';
+import 'package:bloc_app1/users/views/views.dart';
+import 'package:bloc_app1/users/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,7 +14,12 @@ class UsersHomePage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(title: const Text('Users Bloc App')),
+      appBar: AppBar(
+        title: const Text('Users Bloc App'),
+        actions: [
+          IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedPage()));}, icon: Icon(Icons.person_outlined, color: Colors.white,))
+        ],
+        ),
       body: BlocBuilder<UserBloc, UserState>(
         builder: (context, state){
           if(state is UserLoadInProgress){
