@@ -14,11 +14,12 @@ class _PhotosListState extends State<PhotosList> {
   void initState() {
     super.initState();
     _scrollController.addListener(_onScroll);
+    context.read<PhotoCubit>().fetchPhotos();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PhotoBloc, PhotoState>(
+    return BlocBuilder<PhotoCubit, PhotoState>(
       builder: (context, state) {
         switch (state.status) {
           case PhotoStatus.failure:
@@ -54,7 +55,7 @@ class _PhotosListState extends State<PhotosList> {
   }
 
   void _onScroll() {
-    if (_isBottom) context.read<PhotoBloc>().add(PhotoFetched());
+    if (_isBottom) context.read<PhotoCubit>().fetchPhotos();
   }
 
   bool get _isBottom {
