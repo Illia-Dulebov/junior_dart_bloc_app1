@@ -2,7 +2,6 @@ import 'package:bloc_app1/cart/cart.dart';
 import 'package:bloc_app1/cart/services/user_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart' as http;
 
 class UserPage extends StatelessWidget {
   final usersRepository = UserRepository();
