@@ -1,5 +1,6 @@
 import 'package:bloc_app1/cart/view/cart_page.dart';
 import 'package:bloc_app1/cart/view/user_page.dart';
+import 'package:bloc_app1/cart/view/view.dart';
 import 'package:flutter/material.dart';
 
 class SomePages extends StatelessWidget {
@@ -24,6 +25,15 @@ class SomePages extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => CartPage()),
+                    );
+                  })),
+          Center(
+              child: ElevatedButton(
+                  child: Text('Custom Design'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DesignPage()),
                     );
                   }))
         ]));
