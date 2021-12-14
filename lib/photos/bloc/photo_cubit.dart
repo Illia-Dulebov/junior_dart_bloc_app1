@@ -8,6 +8,7 @@ class PhotoCubit extends Cubit<PhotoState> {
   PhotoCubit() : super(PhotoState());
 
   Future<void> fetchPhotos() async {
+
     if (state.hasReachedMax) return;
 
     try {
