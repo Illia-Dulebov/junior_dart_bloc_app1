@@ -55,7 +55,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(right: 20.0, left: 10),
-                  child: Icon(widget.icon, size: 50, color: Colors.white),
+                  child: Icon(widget.icon, size: 50, color: Colors.white,),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
