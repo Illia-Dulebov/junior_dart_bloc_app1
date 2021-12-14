@@ -1,5 +1,4 @@
 import 'package:bloc_app1/users/bloc/user/user.dart';
-import 'package:bloc_app1/users/views/card_page.dart';
 import 'package:bloc_app1/users/views/start.dart';
 import 'package:bloc_app1/users/views/views.dart';
 import 'package:bloc_app1/users/widgets/widgets.dart';

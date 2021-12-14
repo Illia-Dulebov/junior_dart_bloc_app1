@@ -18,26 +18,35 @@ class _TransparentIconButtonState extends State<TransparentIconButton> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector( 
-      onTapDown: (tap){
-        setState(() {
-          _isPressed = true;
-        });
-      },
-      onTapCancel: (){
-        setState(() {
-          _isPressed = false;
-        });
-      },
-      onTap: (){
-        setState(() {
-          _isPressed = false;
-        });
-        widget.onPressed();
-      },
-      child: CustomPaint(
-        painter: TransparentIconButtonPainter(!_isPressed ? Colors.transparent : widget.secondaryColor, widget.size),
-        child:  Center(child: Icon(widget.iconData, size: widget.size, color: Colors.white,)),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell( 
+        splashColor: Color(0xFFE5BCE7),
+        borderRadius: BorderRadius.circular(40),
+        onTapDown: (tap){
+          setState(() {
+            _isPressed = true;
+          });
+        },
+        onTapCancel: (){
+          setState(() {
+            _isPressed = false;
+          });
+        },
+        onTap: (){
+          setState(() {
+            _isPressed = false;
+          });
+          widget.onPressed();
+        },
+        child: CustomPaint(
+          painter: TransparentIconButtonPainter(!_isPressed ? Colors.transparent : widget.secondaryColor, widget.size),
+          child:  Container(
+            height: 2 * widget.size,
+            width: 2 * widget.size,
+            child: Center(child: Icon(widget.iconData, size: widget.size, color: Colors.white,)
+            )),
+        ),
       ),
     );
   }

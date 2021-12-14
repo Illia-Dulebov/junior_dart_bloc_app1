@@ -17,118 +17,129 @@ class CardPage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsetsDirectional.only(top: 50),
         color: Colors.black,
         alignment: Alignment.topCenter,
         child: CustomPaint(
           painter: BackgroundPainter(),
           child: Row(children: [
             Expanded(child: 
-            Column(
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children:[
-                          TransparentIconButton(
-                            iconData: Icons.menu, 
-                            size: 30, secondaryColor: 
-                            Colors.grey.withOpacity(0.5), 
-                            onPressed: (){
-                              print('Pressed transparent menu button');
-                            }),
-                            
-                        ],),
+            ListView(
+              children: [Column(
+                children: [
+                  Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
                         
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children:[
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: TransparentIconButton(
+                                      iconData: Icons.menu, 
+                                      size: 30, secondaryColor: 
+                                      Colors.grey.withOpacity(0.5), 
+                                      onPressed: (){
+                                        print('Pressed transparent menu button');
+                                      }),
+                                ),
+                                    
+                                ],),
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          padding: const EdgeInsets.symmetric(horizontal: 30),
+                          child: Column(
                             children: [
-                              const WhiteTextHeader(text: 'David Welcome Back!'),
-                              TransparentIconButton(
-                                iconData: Icons.add,
-                                size: 25, secondaryColor: 
-                                Colors.grey.withOpacity(0.5), 
-                                onPressed: (){
-                                  print('Pressed transparent + button');
-                                }),
-                            ],
-                          ),
-                        ),
-                        
-
-                        const WalletWidget(),
-
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Column(children: [
-                                Container(
-                                  child: Text('Total Spent', style: TextStyle(color: Colors.white.withOpacity(0.5))),
-                                  margin: const EdgeInsetsDirectional.only(bottom: 5),
+                                
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 10),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const WhiteTextHeader(text: 'David Welcome Back!'),
+                                      TransparentIconButton(
+                                        iconData: Icons.add,
+                                        size: 25, secondaryColor: 
+                                        Colors.grey.withOpacity(0.5), 
+                                        onPressed: (){
+                                          print('Pressed transparent + button');
+                                        }),
+                                    ],
                                   ),
-                                const WhiteTextHeader(text: '\$1,520.00')
-                              ],
-                              crossAxisAlignment: CrossAxisAlignment.start,),
-                              TransparentIconButton(
-                                iconData: Icons.more_horiz_outlined, 
-                                size: 30, 
-                                secondaryColor: Colors.grey.withOpacity(0.5),
-                                onPressed: (){
-                                  print('Pressed transparent ... button');
-                                },
-                                )
+                                ),
+                                
+                                    
+                                const WalletWidget(),
+                                    
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 20),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Column(children: [
+                                        Container(
+                                          child: Text('Total Spent', style: TextStyle(color: Colors.white.withOpacity(0.5))),
+                                          margin: const EdgeInsetsDirectional.only(bottom: 5),
+                                          ),
+                                        const WhiteTextHeader(text: '\$1,520.00')
+                                      ],
+                                      crossAxisAlignment: CrossAxisAlignment.start,),
+                                      TransparentIconButton(
+                                        iconData: Icons.more_horiz_outlined, 
+                                        size: 30, 
+                                        secondaryColor: Colors.grey.withOpacity(0.5),
+                                        onPressed: (){
+                                          print('Pressed transparent ... button');
+                                        },
+                                        )
+                                    ],
+                                  ),
+                                ),
+                                
+                                    
                             ],
                           ),
                         ),
-                        
-
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  height: 120,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Row(
-                          children: [
-                            CategoryWidget(color1: Color(0xFF1C1C1C), color2: Color(0xFF131114), icon: Icons.directions_car_outlined, 
-                            onPressed: (){
-                              print('Pressed category button');
-                            },),
-                            CategoryWidget(color1: Color(0xFF111514), color2: Color(0xFF131114), icon: Icons.directions_car_outlined, 
-                            onPressed: (){
-                              print('Pressed category button');
-                            },),
-                            CategoryWidget(color1: Color(0xFF111514), color2: Color(0xFF131114), icon: Icons.directions_car_outlined, 
-                            onPressed: (){
-                              print('Pressed category button');
-                            },),
-                            CategoryWidget(color1: Color(0xFF111514), color2: Color(0xFF131114), icon: Icons.directions_car_outlined, 
-                            onPressed: (){
-                              print('Pressed category button');
-                            },),
-                          ],
-                        ),
-                      )],
-                  ),
-                )
-              ],
-              
-            ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    height: 120,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Row(
+                            children: [
+                              CategoryWidget(color1: Color(0xFF1C1C1C), color2: Color(0xFF131114), icon: Icons.directions_car_outlined, 
+                              onPressed: (){
+                                print('Pressed category button');
+                              },),
+                              CategoryWidget(color1: Color(0xFF111514), color2: Color(0xFF131114), icon: Icons.card_giftcard_outlined, 
+                              onPressed: (){
+                                print('Pressed category button');
+                              },),
+                              CategoryWidget(color1: Color(0xFF1B1E23), color2: Color(0xFF131114), icon: Icons.lunch_dining_outlined, 
+                              onPressed: (){
+                                print('Pressed category button');
+                              },),
+                              CategoryWidget(color1: Color(0xFF231B1B), color2: Color(0xFF131114), icon: Icons.fitness_center_outlined, 
+                              onPressed: (){
+                                print('Pressed category button');
+                              },),
+                            ],
+                          ),
+                        )],
+                    ),
+                  )
+                ],
+                
+              ),
+              ]),
             )
           ],),
           ),
