@@ -1,4 +1,6 @@
 import 'package:bloc_app1/users/bloc/user/user.dart';
+import 'package:bloc_app1/users/views/card_page.dart';
+import 'package:bloc_app1/users/views/start.dart';
 import 'package:bloc_app1/users/views/views.dart';
 import 'package:bloc_app1/users/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,7 +19,8 @@ class UsersHomePage extends StatelessWidget{
       appBar: AppBar(
         title: const Text('Users Bloc App'),
         actions: [
-          IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedPage()));}, icon: Icon(Icons.person_outlined, color: Colors.white,))
+          IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedPage()));}, icon: Icon(Icons.person_outlined, color: Colors.white,)),
+          IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()));}, icon: Icon(Icons.fingerprint_outlined, color: Colors.white,))
         ],
         ),
       body: BlocBuilder<UserBloc, UserState>(
